@@ -8,14 +8,13 @@
 import Foundation
 import SwiftUI
 
-class ComicViewModel: ObservableObject {
+class ComicsViewModel: ObservableObject {
     
     @Published private var comics = [AllComics]()
     @AppStorage("totalComics") private(set) var comicCount = 2650
     lazy var totalComics = (1..<self.comicCount)
+    
       
-
-    @MainActor//    to let stuff run on the main thread, not in the background's one
     public func loadComics() async {
         guard let url = URL(string: "https://api.xkcdy.com/comics") else {
             print("Invalid URL")
