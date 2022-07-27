@@ -11,6 +11,11 @@
 		4204893C2891966100F33DE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204893B2891966100F33DE4 /* ContentView.swift */; };
 		4204893E2891966500F33DE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4204893D2891966500F33DE4 /* Assets.xcassets */; };
 		420489412891966500F33DE4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420489402891966500F33DE4 /* Preview Assets.xcassets */; };
+		4204894828919EAB00F33DE4 /* ComicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204894728919EAB00F33DE4 /* ComicModel.swift */; };
+		4204894C28919FC700F33DE4 /* ComicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204894B28919FC600F33DE4 /* ComicsViewModel.swift */; };
+		4204894F2891A29A00F33DE4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204894E2891A29A00F33DE4 /* HomeView.swift */; };
+		420489512891A2B500F33DE4 /* ComicDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420489502891A2B500F33DE4 /* ComicDetailsView.swift */; };
+		420489532891A2D500F33DE4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420489522891A2D400F33DE4 /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		4204893B2891966100F33DE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4204893D2891966500F33DE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		420489402891966500F33DE4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4204894728919EAB00F33DE4 /* ComicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicModel.swift; sourceTree = "<group>"; };
+		4204894B28919FC600F33DE4 /* ComicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsViewModel.swift; sourceTree = "<group>"; };
+		4204894E2891A29A00F33DE4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		420489502891A2B500F33DE4 /* ComicDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailsView.swift; sourceTree = "<group>"; };
+		420489522891A2D400F33DE4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,9 @@
 		420489382891966100F33DE4 /* XKCD App */ = {
 			isa = PBXGroup;
 			children = (
+				4204894D2891A27200F33DE4 /* Views */,
+				4204894A28919F8700F33DE4 /* ViewModels */,
+				4204894928919EB600F33DE4 /* Models */,
 				420489392891966100F33DE4 /* XKCD_AppApp.swift */,
 				4204893B2891966100F33DE4 /* ContentView.swift */,
 				4204893D2891966500F33DE4 /* Assets.xcassets */,
@@ -65,6 +78,32 @@
 				420489402891966500F33DE4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4204894928919EB600F33DE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4204894728919EAB00F33DE4 /* ComicModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4204894A28919F8700F33DE4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4204894B28919FC600F33DE4 /* ComicsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4204894D2891A27200F33DE4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4204894E2891A29A00F33DE4 /* HomeView.swift */,
+				420489502891A2B500F33DE4 /* ComicDetailsView.swift */,
+				420489522891A2D400F33DE4 /* FavoritesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +178,11 @@
 			files = (
 				4204893C2891966100F33DE4 /* ContentView.swift in Sources */,
 				4204893A2891966100F33DE4 /* XKCD_AppApp.swift in Sources */,
+				4204894C28919FC700F33DE4 /* ComicsViewModel.swift in Sources */,
+				420489512891A2B500F33DE4 /* ComicDetailsView.swift in Sources */,
+				420489532891A2D500F33DE4 /* FavoritesView.swift in Sources */,
+				4204894F2891A29A00F33DE4 /* HomeView.swift in Sources */,
+				4204894828919EAB00F33DE4 /* ComicModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
