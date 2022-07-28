@@ -11,22 +11,21 @@ struct ContentView: View {
 
     @State private var searchText = ""
     @State  var tabSelection = 0
-    @State var number : Int = 0
-    
+    @State var number: Int = 0
+
     var body: some View {
         NavigationView {
-                
+
             TabView(selection: $tabSelection) {
-                
+
                 HomeView(viewModel: ComicsViewModel())
                 .navigationTitle("XKCD Comics")
-                
+
         .tabItem {
             Label("", systemImage: "book")
 
         }.tag(0)
-                
-            
+
         FavoritesView()
                 .tabItem {
                     Label("", systemImage: "heart").foregroundColor(.white)
@@ -35,7 +34,7 @@ struct ContentView: View {
             .searchable(text: $searchText)
 
              Divider()
-            
+
         }
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)

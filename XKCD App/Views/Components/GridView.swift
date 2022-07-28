@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct GridView: View {
-    @State var allComics : [AllComics]
-    @EnvironmentObject var vm : ComicsViewModel
+    @State var allComics: [AllComics]
+    @EnvironmentObject var cvm: ComicsViewModel
     var imageURL = ""
-    
+
     init(_ comic: [AllComics]) {
-        
+
         self.allComics = comic
-       
+
     }
 
     let columns = [
@@ -23,22 +23,22 @@ struct GridView: View {
         GridItem(.fixed(120)),
         GridItem(.fixed(120))
     ]
-    
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            
+
 //            LazyVStack {
-                LazyVGrid(columns: columns, spacing: 12){
-                    ForEach (allComics.reversed(), id: \.self) { singleComic in
+                LazyVGrid(columns: columns, spacing: 12) {
+                    ForEach(allComics.reversed(), id: \.self) { singleComic in
                         NavigationLink(destination: ComicDetailsView(comicNumber: singleComic.id)) {
-                            
-                                AsyncImage(url: URL(string : singleComic.imgs[0].sourceUrl)) { image in
+
+                            AsyncImage(url: URL(string: singleComic.imgs[0].sourceUrl)) { image in
                                     image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .scaledToFit()
                                     .clipped()
-                                    
+
                                     .overlay(alignment: .topLeading) {
                                         Text("\(singleComic.id)")
                                             .font(.footnote)
@@ -48,11 +48,11 @@ struct GridView: View {
                                             .background(Color.gray.opacity(0.8))
                                             .clipShape(RoundedRectangle(cornerRadius: 8))
                                             .padding()
-                                            
+
                                     }
                                 } placeholder: {
                                     ProgressView()
-                                        .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/4)
+                                    .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/4)
                                 }
                         }
                     }.task {
@@ -61,29 +61,29 @@ struct GridView: View {
                 }
 //            }
         }
-        
+
     }
-    
+
     public func loadComics() async {
-       
+
         guard let url = URL(string: "https://api.xkcdy.com/comics") else {
             print("Invalid URL")
             return
         }
-        
+
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            
+
             if let decodedResponse = try JSONDecoder().decode([AllComics]?.self, from: data) {
-                
+
                 self.allComics = decodedResponse
                 print(allComics[0].transcript)
-            }
+           }
         }
         catch {
             print(error)
         }
-        
+
     }
 }
 

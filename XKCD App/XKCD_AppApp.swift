@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+// swiftlint:disable all
 struct XKCD_AppApp: App {
     var body: some Scene {
         WindowGroup {
