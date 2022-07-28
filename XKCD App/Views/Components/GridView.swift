@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GridView: View {
     @State var allComics: [AllComics]
+    @StateObject var favorites = FavoriteViewModel()
     @EnvironmentObject var cvm: ComicsViewModel
     var imageURL = ""
 
@@ -27,7 +28,6 @@ struct GridView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
 
-//            LazyVStack {
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(allComics.reversed(), id: \.self) { singleComic in
                         NavigationLink(destination: ComicDetailsView(comicNumber: singleComic.id)) {
@@ -38,7 +38,6 @@ struct GridView: View {
                                     .aspectRatio(contentMode: .fill)
                                     .scaledToFit()
                                     .clipped()
-
                                     .overlay(alignment: .topLeading) {
                                         Text("\(singleComic.id)")
                                             .font(.footnote)
@@ -50,6 +49,11 @@ struct GridView: View {
                                             .padding()
 
                                     }
+//                                if favorites.contains(comicNumber: comic.num) {
+//                                    Spacer()
+//                                   Image(systemName: "heart.fill")
+//                                        .foregroundColor(.red)
+//                                }
                                 } placeholder: {
                                     ProgressView()
                                     .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/4)
@@ -59,8 +63,7 @@ struct GridView: View {
                             await loadComics()
                         }
                 }
-//            }
-        }
+        }.environmentObject(favorites)
 
     }
 
@@ -77,10 +80,8 @@ struct GridView: View {
             if let decodedResponse = try JSONDecoder().decode([AllComics]?.self, from: data) {
 
                 self.allComics = decodedResponse
-                print(allComics[0].transcript)
            }
-        }
-        catch {
+        } catch {
             print(error)
         }
 

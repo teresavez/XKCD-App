@@ -15,7 +15,7 @@ struct HomeView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.indigo, .cyan], startPoint: .top, endPoint: .bottomTrailing)
+            LinearGradient(colors: [.cyan, .indigo], startPoint: .top, endPoint: .bottomTrailing)
                         .ignoresSafeArea(.all)
         VStack {
 
@@ -25,10 +25,10 @@ struct HomeView: View {
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
-
                 GridView([.example])
 
         }.environmentObject(ComicsViewModel())
+
         }
 
     }

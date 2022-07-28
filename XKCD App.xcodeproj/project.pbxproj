@@ -17,6 +17,7 @@
 		420489512891A2B500F33DE4 /* ComicDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420489502891A2B500F33DE4 /* ComicDetailsView.swift */; };
 		420489532891A2D500F33DE4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420489522891A2D400F33DE4 /* FavoritesView.swift */; };
 		420489562891A78B00F33DE4 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420489552891A78B00F33DE4 /* GridView.swift */; };
+		4267AD2F2892ABB0009034FC /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4267AD2E2892ABB0009034FC /* FavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		420489502891A2B500F33DE4 /* ComicDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailsView.swift; sourceTree = "<group>"; };
 		420489522891A2D400F33DE4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		420489552891A78B00F33DE4 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		4267AD2E2892ABB0009034FC /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4204894B28919FC600F33DE4 /* ComicsViewModel.swift */,
+				4267AD2E2892ABB0009034FC /* FavoriteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4267AD2F2892ABB0009034FC /* FavoriteViewModel.swift in Sources */,
 				4204893C2891966100F33DE4 /* ContentView.swift in Sources */,
 				4204893A2891966100F33DE4 /* XKCD_AppApp.swift in Sources */,
 				420489562891A78B00F33DE4 /* GridView.swift in Sources */,

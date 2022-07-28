@@ -31,11 +31,9 @@ struct ContentView: View {
                     Label("", systemImage: "heart").foregroundColor(.white)
                 }.tag(1)
             }
-            .searchable(text: $searchText)
+//            .searchable(text: $searchText)
 
-             Divider()
-
-        }
+        }.searchable(text: $searchText)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
         .background(.gray)

@@ -32,8 +32,7 @@ class ComicsViewModel: ObservableObject {
 
                 }
             }
-           }
-        catch {
+        } catch {
             print(error)
         }
 

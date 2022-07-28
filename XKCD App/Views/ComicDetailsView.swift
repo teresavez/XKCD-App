@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ComicDetailsView: View {
     @State var comic: Comic = .example
+    @StateObject var favorites = FavoriteViewModel()
     let comicNumber: Int
-    @State var isPressed: Bool = false
 
     init(comicNumber: Int) {
         self.comicNumber = comicNumber
@@ -18,7 +18,7 @@ struct ComicDetailsView: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.indigo, .cyan], startPoint: .top, endPoint: .bottomTrailing)
+            LinearGradient(colors: [.cyan, .indigo], startPoint: .top, endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
 
             VStack {
@@ -60,12 +60,17 @@ struct ComicDetailsView: View {
                             .font(.caption)
                         Spacer()
 
-                        Button(action: {  self.isPressed.toggle()
-                        }) {
-                            Image(systemName: isPressed ? "heart.fill" : "heart")
-                                .foregroundColor(.white)
+                        Button(action: {
+                            if  favorites.contains(comicNumber: comic.num) {
+                                favorites.delete(comicNumber: comic.num)
+                            } else {
+                                favorites.add(comicNumber: comic.num)
+                            }
+                        }, label: {
+                            Image(systemName: favorites.contains(comicNumber: comic.num) ? "heart.fill" : "heart")
+                                .foregroundColor(favorites.contains(comicNumber: comic.num) ? .red : .white)
                                 .frame(width: UIScreen.main.bounds.width/12)
-                        }
+                        })
                     }.padding(4)
 
                     Text(comic.alt)
@@ -73,19 +78,16 @@ struct ComicDetailsView: View {
                         .foregroundColor(.white)
 
                     Spacer()
-//                Spacer()
+
                     Text(comic.transcript)
                         .font(.headline)
-
-                    //            .bold()
-
             }
                 .task {
                     await loadComic(comicNumber: comicNumber)
                 }
 
             }
-        }
+        }.environmentObject(favorites)
 //        .navigationBarBackButtonHidden(true)
 //        .navigationBarItems(leading: Image(systemName: "chevron.left"))
     }
@@ -103,8 +105,7 @@ struct ComicDetailsView: View {
 
                 self.comic = decodedResponse
             }
-        }
-        catch {
+        } catch {
             print(error)
         }
 
