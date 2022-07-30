@@ -11,7 +11,6 @@ struct GridView: View {
     @State var allComics: [AllComics]
     @StateObject var favorites = FavoriteViewModel()
     @EnvironmentObject var cvm: ComicsViewModel
-    @State private var searchText = ""
 
     init(_ comic: [AllComics]) {
 
@@ -68,8 +67,7 @@ struct GridView: View {
                 }
             }
             //            }
-        } .searchable(text: $searchText)
-        .environmentObject(favorites)
+        }.environmentObject(favorites)
     }
 
     public func loadComics() async {

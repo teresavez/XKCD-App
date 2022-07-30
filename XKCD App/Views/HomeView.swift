@@ -9,24 +9,26 @@ import SwiftUI
 
 struct HomeView: View {
 
-    let title1 = "More recent"
-    let title2 = "Suggested"
+    let title = "More recent"
     var viewModel: ComicsViewModel
 
     var body: some View {
         ZStack {
             LinearGradient(colors: [.cyan, .indigo], startPoint: .top, endPoint: .bottomTrailing)
                         .ignoresSafeArea(.all)
-        VStack {
-
-            Text(title1)
+            VStack(spacing: 8) {
+            SearchBarView()
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 8)
+            Text(title)
                 .font(.title2)
                 .bold()
-                .foregroundColor(.black)
+                .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
 
                 GridView([.example])
+                    .frame(height: UIScreen.main.bounds.height/1.8)
 
         }.environmentObject(ComicsViewModel())
 

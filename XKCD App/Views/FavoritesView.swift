@@ -16,23 +16,26 @@ struct FavoritesView: View {
         ZStack {
             LinearGradient(colors: [.cyan, .indigo], startPoint: .top, endPoint: .bottomTrailing)
                         .ignoresSafeArea(.all)
-        ScrollView {
+
+            ScrollView(showsIndicators: false) {
+
+                VStack(spacing: 14) {
 
             ForEach(allComics, id: \.id) { comic in
                     if favorites.contains(comicNumber: comic.id) {
-
+                        NavigationLink(destination: ComicDetailsView(comicNumber: comic.id)) {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 30)
-                    .frame(width: UIScreen.main.bounds.width/1.2, height: UIScreen.main.bounds.height/5)
+                    RoundedRectangle(cornerRadius: 24)
+                        .frame(width: UIScreen.main.bounds.width/1.1, height: UIScreen.main.bounds.height/5.9)
                     .foregroundColor(.white.opacity(0.9))
                     .overlay(alignment: .leading) {
                     HStack {
                         AsyncImage(url: URL(string: comic.imgs[0].sourceUrl)) { image in
                             image
                                 .resizable()
-                                .frame(width: 120, height: 120)
+                                .frame(width: 80, height: 100)
                                 .scaledToFit()
-                                .shadow(radius: 15)
+                                .shadow(color: .cyan.opacity(0.2), radius: 15)
                                 .padding()
 
                         }
@@ -40,21 +43,27 @@ struct FavoritesView: View {
                             ProgressView()
                             .frame(width: 120, height: 120)
                         }
-                    VStack {
-                        Text("\(comic.id)").bold()
                         Text(comic.title).bold()
-                    }.font(.title3)
+                            .font(.headline)
+
                         Spacer()
+
+                        Image(systemName: "heart.fill").foregroundColor(.red)
+                            .padding(20)
+
                     }
                     }
                 }
+                        }.foregroundColor(.black)
                 }
+            }
                 }
-        }.environmentObject(favorites)
+            }.frame(height: UIScreen.main.bounds.height/1.4)
+        .environmentObject(favorites)
             .task {
                 await loadComics()
             }
-        }.navigationTitle("ciao")
+        }
     }
 
     public func loadComics() async {

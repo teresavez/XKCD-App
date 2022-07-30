@@ -18,6 +18,7 @@
 		420489532891A2D500F33DE4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420489522891A2D400F33DE4 /* FavoritesView.swift */; };
 		420489562891A78B00F33DE4 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420489552891A78B00F33DE4 /* GridView.swift */; };
 		4267AD2F2892ABB0009034FC /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4267AD2E2892ABB0009034FC /* FavoriteViewModel.swift */; };
+		427AEA4A289557EF00BE00AA /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427AEA49289557EF00BE00AA /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		420489522891A2D400F33DE4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		420489552891A78B00F33DE4 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		4267AD2E2892ABB0009034FC /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		427AEA49289557EF00BE00AA /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				420489552891A78B00F33DE4 /* GridView.swift */,
+				427AEA49289557EF00BE00AA /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				427AEA4A289557EF00BE00AA /* SearchBarView.swift in Sources */,
 				4267AD2F2892ABB0009034FC /* FavoriteViewModel.swift in Sources */,
 				4204893C2891966100F33DE4 /* ContentView.swift in Sources */,
 				4204893A2891966100F33DE4 /* XKCD_AppApp.swift in Sources */,

@@ -18,7 +18,6 @@ struct ContentView: View {
             TabView(selection: $tabSelection) {
 
                 HomeView(viewModel: ComicsViewModel())
-                .navigationTitle("XKCD Comics")
 
         .tabItem {
             Label("", systemImage: "book")
@@ -26,19 +25,13 @@ struct ContentView: View {
         }.tag(0)
 
                 FavoritesView(allComics: [.example])
-                    .navigationTitle("Favorites")
+
                 .tabItem {
                     Label("", systemImage: "heart")
                 }.tag(1)
             }.accentColor(.white)
-                .onAppear(perform: {
-                    UITabBar.appearance().barTintColor = .black
-                })
-
-        }
-        .navigationBarTitleDisplayMode(.large)
-        .navigationBarBackButtonHidden(true)
-        .background(.gray)
+                .navigationTitle(tabSelection == 0 ? "XKCD Comics" : "Favorites")
+        }.accentColor(.white)
     }
 }
 
