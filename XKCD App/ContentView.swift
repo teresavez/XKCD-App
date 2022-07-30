@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var searchText = ""
     @State  var tabSelection = 0
     @State var number: Int = 0
 
@@ -26,14 +25,17 @@ struct ContentView: View {
 
         }.tag(0)
 
-        FavoritesView()
+                FavoritesView(allComics: [.example])
+                    .navigationTitle("Favorites")
                 .tabItem {
-                    Label("", systemImage: "heart").foregroundColor(.white)
+                    Label("", systemImage: "heart")
                 }.tag(1)
-            }
-//            .searchable(text: $searchText)
+            }.accentColor(.white)
+                .onAppear(perform: {
+                    UITabBar.appearance().barTintColor = .black
+                })
 
-        }.searchable(text: $searchText)
+        }
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(true)
         .background(.gray)

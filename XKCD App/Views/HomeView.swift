@@ -25,6 +25,7 @@ struct HomeView: View {
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
+
                 GridView([.example])
 
         }.environmentObject(ComicsViewModel())
