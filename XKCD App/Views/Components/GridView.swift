@@ -81,8 +81,9 @@ struct GridView: View {
             let (data, _) = try await URLSession.shared.data(from: url)
 
             if let decodedResponse = try JSONDecoder().decode([AllComics]?.self, from: data) {
-
+                DispatchQueue.main.async {
                 self.allComics = decodedResponse
+                }
             }
         } catch {
             print(error)

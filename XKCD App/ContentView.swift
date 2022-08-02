@@ -10,7 +10,10 @@ import SwiftUI
 struct ContentView: View {
 
     @State  var tabSelection = 0
-    @State var number: Int = 0
+
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            }
 
     var body: some View {
         NavigationView {
